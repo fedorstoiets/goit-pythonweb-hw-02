@@ -1,7 +1,8 @@
 services:
   db:
     image: postgres:15
-        environment:
+    container_name: hw02-postgres
+    environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 567234
       POSTGRES_DB: hw02
@@ -17,7 +18,8 @@ services:
 
   app:
     build: .
-        ports:
+    container_name: hw02-fastapi
+    ports:
       - "8000:8000"
     depends_on:
       db:
